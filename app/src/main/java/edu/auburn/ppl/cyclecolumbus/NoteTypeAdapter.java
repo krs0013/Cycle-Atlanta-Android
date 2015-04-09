@@ -33,41 +33,22 @@ public class NoteTypeAdapter extends ArrayAdapter<String> {
 
 		switch (position) {
 		case 0:
-			imageView.setImageResource(R.drawable.noteissuepicker_high);
-			break;
 		case 1:
-			imageView.setImageResource(R.drawable.noteissuepicker_high);
-			break;
 		case 2:
-			imageView.setImageResource(R.drawable.noteissuepicker_high);
-			break;
 		case 3:
-			imageView.setImageResource(R.drawable.noteissuepicker_high);
-			break;
 		case 4:
-			imageView.setImageResource(R.drawable.noteissuepicker_high);
-			break;
 		case 5:
 			imageView.setImageResource(R.drawable.noteissuepicker_high);
 			break;
 		case 6:
-			imageView.setImageResource(R.drawable.noteassetpicker_high);
-			break;
 		case 7:
-			imageView.setImageResource(R.drawable.noteassetpicker_high);
-			break;
 		case 8:
-			imageView.setImageResource(R.drawable.noteassetpicker_high);
-			break;
 		case 9:
-			imageView.setImageResource(R.drawable.noteassetpicker_high);
-			break;
 		case 10:
-			imageView.setImageResource(R.drawable.noteassetpicker_high);
-			break;
 		case 11:
-			imageView.setImageResource(R.drawable.noteassetpicker_high);
-			break;
+        case 12:
+            imageView.setImageResource(R.drawable.noteassetpicker_high);
+            break;
 		}
 		return rowView;
 	}

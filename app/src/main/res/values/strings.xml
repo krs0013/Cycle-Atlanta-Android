@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Cycle Columbus</string>
+    <string name="app_name">Fountain City Cycling</string>
     <string name="title_section4">Setting</string>
     <string name="title_section3">Notes</string>
     <string name="title_section2">Trips</string>
@@ -90,7 +90,7 @@
         <item>Other</item>
     </string-array>
 
-    <string name="title_activity_main">Cycle Columbus</string>
+    <string name="title_activity_main">Fountain City Cycling</string>
 
     <!--=============================================-->
     <!-- Instruction TextViews in activity_user_info -->
@@ -103,16 +103,16 @@
         tapping <b>Save</b> in the next pop-up. If you don\'t want to save the trip and upload the data - for
         whatever reason - simply choose <b>Discard.</b> If you tap Save by accident and want to continue recording
         your current trip, choose <b>Continue</b>.\n\nIf you have switched to another app while recording
-        your ride, you can get back to Cycle Columbus by selecting it from your Home Screen or from
-        the App Switcher. If your battery goes below a 20% charge, Cycle Columbus will automatically stop
+        your ride, you can get back to Fountain City Cycling by selecting it from your Home Screen or from
+        the App Switcher. If your battery goes below a 20% charge, Fountain City Cycling will automatically stop
         recording and shut down.</string>
     <string name="instruction_3">Select a purpose on the <b>Trip Purpose</b> screen and tap <b>Save.</b> We\'re
         interested in the MAIN purpose for each trip you make. If you\'re unsure how to categorize a
         trip, select <b>Other</b> from the Trip Purpose chooser. You can always include a comment before
-        transmitting.\n\nCycle Columbus will prompt you to enter comments or notes on the ride, which you can
+        transmitting.\n\nFountain City Cycling will prompt you to enter comments or notes on the ride, which you can
         skip if you have none. It will then upload your ride data, notifying you when done. If there\'s a problem
         connecting to the server, it will prompt you to retry at another time.</string>
-    <string name="instruction_4">After your data is uploaded, Cycle Columbus displays the map of your ride,
+    <string name="instruction_4">After your data is uploaded, Fountain City Cycling displays the map of your ride,
         showing the route, distance travelled, and average speed.\n\nTap <b>My Trips</b> on the tab-bar at the
         bottom of the screen to show a list of all your rides, including dates, times, mileage, CO2 saved,
         and calories burned. Tap on a trip to display its map. Share the map with others by taking a
@@ -136,9 +136,9 @@
         you entered for this note. Tap <b>Edit</b> on the top of the <b>My Notes</b> page to delete a note.</string>
     <string name="instruction_8">Entering personal info is completely optional and confidential, and, if you
         choose to participate, only has to be done once. It involves a few basic questions useful to our
-        study. If you wish to give us your email address, the City of Columbus or Georgia Tech may contact
-        you directly about your experience using Cycle Columbus or bicycling in the city. Tap <b>Save</b> when
-        finished.\n\nThis Help menu is available from <b>Getting started with Cycle Columbus</b>.</string>
+        study. If you wish to give us your email address, the City of Columbus may contact
+        you directly about your experience using Fountain City Cycling or bicycling in the city. Tap <b>Save</b> when
+        finished.\n\nThis Help menu is available from <b>Getting started with Fountain City Cycling</b>.</string>
     <string name="steps_working_properly">For your own safety, please do not listen to music with your
         headphones, talk on the phone, or look at the screen while cycling. Please pull over before
         reporting an asset or issue on your trip.\n\nBe sure to enable Location in your phone\'s Settings.

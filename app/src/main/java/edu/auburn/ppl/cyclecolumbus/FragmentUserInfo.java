@@ -3,7 +3,7 @@ package edu.auburn.ppl.cyclecolumbus;
 /**
  * This class is used in the "Settings" tab in the app.  It will save the users
  * personal information if they want to save it.  Also will explain how the app is
- * intended to be used if they click the "Get started with Cycle Columbus" button.
+ * intended to be used if they click the "Get started with Fountain City Cycling" button.
  *
  * @author Ken Streit, Auburn University
  * @date February 4, 2015

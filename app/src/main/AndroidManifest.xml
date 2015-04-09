@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="edu.auburn.ppl.cyclecolumbus"
     android:versionCode="3"
-    android:versionName="3.0" >
+    android:versionName="1.2" >
     <uses-sdk
         android:minSdkVersion="13"
         android:targetSdkVersion="19" />
@@ -21,7 +21,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/fountain_city_icon"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
@@ -61,9 +61,17 @@
             android:enabled="true"
             android:exported="true" >
         </service>
+        <activity
+            android:name="edu.auburn.ppl.cyclecolumbus.LeaderboardActivity"
+            android:theme="@style/Theme.AppCompat.Light"
+            android:label="Leader Board" >
+        </activity>
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyBD5-6W73yesu0gAjvGkmNIq0Y6xUImrW4" />
+            android:value="AIzaSyDkDhZBmc1CkS83vU5ae1mHm-edhsvC2Z0" />
+        <!-- Debug Key: AIzaSyBD5-6W73yesu0gAjvGkmNIq0Y6xUImrW4 -->
+        <!-- Release Key: AIzaSyBO6BnsVx-9A7fpxhC-eNGY_ZF-a8I1UNo​-->
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

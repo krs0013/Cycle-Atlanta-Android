@@ -1,4 +1,4 @@
-/**  Cycle Columbus, Copyright 2014 Georgia Institute of Technology
+/**  Fountain City Cycling, Copyright 2014 Georgia Institute of Technology
  *                                    Atlanta, GA. USA
  *
  *   @author Christopher Le Dantec <ledantec@gatech.edu>
@@ -95,6 +95,8 @@ public class TripMapActivity extends Activity {
 			t3.setText(trip.fancystart);
 
 			gpspoints = trip.getPoints();
+
+            Log.v("KENNY", "Trip ID: " + tripid);
 
 			Log.v("Jason", gpspoints.toString());
 

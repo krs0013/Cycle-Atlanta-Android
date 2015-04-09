@@ -92,28 +92,6 @@ public class TripPurposeActivity extends Activity {
 						"If none of the other reasons apply to this trip, you can enter trip comments after saving your trip to tell us more.");
 	}
 
-	// CheckListener cl = new CheckListener();
-	// for (Entry<Integer, ToggleButton> e : purpButtons.entrySet()) {
-	// e.getValue().setOnCheckedChangeListener(cl);
-	// }
-
-	// // Called every time a purp togglebutton is changed:
-	// class CheckListener implements CompoundButton.OnCheckedChangeListener {
-	// @Override
-	// public void onCheckedChanged(CompoundButton v, boolean isChecked) {
-	// // First, uncheck all purp buttons
-	// if (isChecked) {
-	// for (Entry<Integer, ToggleButton> e : purpButtons.entrySet()) {
-	// e.getValue().setChecked(false);
-	// }
-	// v.setChecked(true);
-	// purpose = v.getText().toString();
-	// ((TextView) findViewById(R.id.textViewTripPurposeDesc))
-	// .setText(Html.fromHtml(purpDescriptions.get(v.getId())));
-	// }
-	// }
-	// }
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -128,10 +106,7 @@ public class TripPurposeActivity extends Activity {
 		final ListView listView = (ListView) findViewById(R.id.listViewTripPurpose);
 		values = new String[] { "Commute", "School", "Work-Related",
 				"Exercise", "Social", "Shopping", "Errand", "Other" };
-		// final ArrayList<String> list = new ArrayList<String>();
-		// for (int i = 0; i < values.length; ++i) {
-		// list.add(values[i]);
-		// }
+
 		TripPurposeAdapter adapter = new TripPurposeAdapter(this, values);
 		listView.setAdapter(adapter);
 		// set default
@@ -147,9 +122,7 @@ public class TripPurposeActivity extends Activity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				// TODO Auto-generated method stub
-				// view.setSelected(true);
-				// view.setBackgroundDrawable(parent.getResources().getDrawable(R.drawable.bg_key));
+
 				clearSelection();
 				oldSelection = view;
 				view.setBackgroundColor(Color.parseColor("#ff33b5e5"));
@@ -163,41 +136,6 @@ public class TripPurposeActivity extends Activity {
 			}
 
 		});
-
-		// // User prefs btn
-		// final Button prefsButton = (Button) findViewById(R.id.ButtonPrefs);
-		// final Intent pi = new Intent(this, UserInfoActivity.class);
-		// prefsButton.setOnClickListener(new View.OnClickListener() {
-		// public void onClick(View v) {
-		// startActivity(pi);
-		// }
-		// });
-		//
-		// SharedPreferences settings = getSharedPreferences("PREFS", 0);
-		// if (settings.getAll().size() >= 1) {
-		// prefsButton.setVisibility(View.GONE);
-		// }
-
-		// // Discard btn - move to action bar
-		// final Button btnDiscard = (Button) findViewById(R.id.ButtonDiscard);
-		// btnDiscard.setOnClickListener(new View.OnClickListener() {
-		// public void onClick(View v) {
-		// Toast.makeText(getBaseContext(), "Trip discarded.",
-		// Toast.LENGTH_SHORT).show();
-		//
-		// cancelRecording();
-		//
-		// Intent i = new Intent(TripPurposeActivity.this,
-		// MainInputActivity.class);
-		// i.putExtra("keepme", true);
-		// startActivity(i);
-		// TripPurposeActivity.this.finish();
-		// }
-		// });
-
-		// // Submit btn
-		// final Button btnSubmit = (Button) findViewById(R.id.ButtonSubmit);
-		// btnSubmit.setEnabled(false);
 
 		// Don't pop up the soft keyboard until user clicks!
 		this.getWindow().setSoftInputMode(

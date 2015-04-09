@@ -69,7 +69,11 @@ public class NoteUploader extends AsyncTask<Long, Integer, Boolean> {
 	public static final String NOTE_DETAILS = "d";
 	public static final String NOTE_IMGURL = "i";
 
-	String boundary = "cycle*******notedata*******atlanta";
+    private String responseMessage = "nullMsg";
+    private int responseCode = -1;
+    private String deviceId = "";
+
+	String boundary = "cycle*******notedata*******columbus";
 
 	public NoteUploader(Context ctx) {
 		super();
@@ -153,7 +157,7 @@ public class NoteUploader extends AsyncTask<Long, Integer, Boolean> {
 
 	boolean uploadOneNote(long currentNoteId) {
 		boolean result = false;
-		final String postUrl = "http://cycleatlanta.org/post_dev/";
+		final String postUrl = "http://FountainCityCycling.org/post/";
 
 		try {
 
@@ -169,23 +173,28 @@ public class NoteUploader extends AsyncTask<Long, Integer, Boolean> {
 					"multipart/form-data; boundary=" + boundary);
 			conn.setRequestProperty("Cycleatl-Protocol-Version", "4");
 
+            /*
+            Change protocol to 2 for Note, and change the point where you zip up the body.  (Dont zip up trip body)
+            Since notes don't work either, this may not solve it.
+             */
+
 			DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
 
 			JSONObject note = getNoteJSON(currentNoteId);
-			String deviceId = getDeviceId();
+			deviceId = getDeviceId();
 
-			dos.writeBytes("--cycle*******notedata*******atlanta\r\n"
+			dos.writeBytes("--cycle*******notedata*******columbus\r\n"
 					+ "Content-Disposition: form-data; name=\"note\"\r\n\r\n"
 					+ note.toString() + "\r\n");
-			dos.writeBytes("--cycle*******notedata*******atlanta\r\n"
+			dos.writeBytes("--cycle*******notedata*******columbus\r\n"
 					+ "Content-Disposition: form-data; name=\"version\"\r\n\r\n"
 					+ String.valueOf(kSaveNoteProtocolVersion) + "\r\n");
-			dos.writeBytes("--cycle*******notedata*******atlanta\r\n"
+			dos.writeBytes("--cycle*******notedata*******columbus\r\n"
 					+ "Content-Disposition: form-data; name=\"device\"\r\n\r\n"
 					+ deviceId + "\r\n");
 
 			if (imageDataNull == false) {
-				dos.writeBytes("--cycle*******notedata*******atlanta\r\n"
+				dos.writeBytes("--cycle*******notedata*******columbus\r\n"
 						+ "Content-Disposition: form-data; name=\"file\"; filename=\""
 						+ deviceId + ".jpg\"\r\n"
 						+ "Content-Type: image/jpeg\r\n\r\n");
@@ -193,7 +202,7 @@ public class NoteUploader extends AsyncTask<Long, Integer, Boolean> {
 				dos.writeBytes("\r\n");
 			}
 
-			dos.writeBytes("--cycle*******notedata*******atlanta--\r\n");
+			dos.writeBytes("--cycle*******notedata*******columbus--\r\n");
 
 			dos.flush();
 			dos.close();
@@ -201,21 +210,26 @@ public class NoteUploader extends AsyncTask<Long, Integer, Boolean> {
 			int serverResponseCode = conn.getResponseCode();
 			String serverResponseMessage = conn.getResponseMessage();
 			// JSONObject responseData = new JSONObject(serverResponseMessage);
-			Log.v("Jason", "HTTP Response is : " + serverResponseMessage + ": "
+			Log.v("KENNY", "HTTP Response is : " + serverResponseMessage + ": "
 					+ serverResponseCode);
-			if (serverResponseCode == 201 || serverResponseCode == 202) {
+            responseMessage = serverResponseMessage;
+            responseCode = serverResponseCode;
+			if (serverResponseCode == 200 || serverResponseCode == 201 || serverResponseCode == 202) {
 				mDb.open();
 				mDb.updateNoteStatus(currentNoteId, NoteData.STATUS_SENT);
 				mDb.close();
 				result = true;
 			}
 		} catch (IllegalStateException e) {
+            Log.d("KENNY", "Note Catch: Illegal State Exception: " + e);
 			e.printStackTrace();
 			return false;
 		} catch (IOException e) {
+            Log.d("KENNY", "Note Catch: IOException: " + e);
 			e.printStackTrace();
 			return false;
 		} catch (JSONException e) {
+            Log.d("KENNY", "Note Catch: JSONException: " + e);
 			e.printStackTrace();
 			return false;
 		}
@@ -255,7 +269,7 @@ public class NoteUploader extends AsyncTask<Long, Integer, Boolean> {
 	@Override
 	protected void onPreExecute() {
 		Toast.makeText(mCtx.getApplicationContext(),
-				"Submitting. Thanks for using Cycle Columbus!",
+				"Submitting. Thanks for using Fountain City Cycling!",
 				Toast.LENGTH_LONG).show();
 	}
 
@@ -293,7 +307,7 @@ public class NoteUploader extends AsyncTask<Long, Integer, Boolean> {
 				listSavedNotes.invalidate();
 				fragmentSavedNotesSection.populateNoteList(listSavedNotes);
 			}
-
+            Log.d("KENNY", "Device ID: " + deviceId);
 			if (result) {
 				Toast.makeText(mCtx.getApplicationContext(),
 						"Note uploaded successfully.", Toast.LENGTH_SHORT)
@@ -301,7 +315,7 @@ public class NoteUploader extends AsyncTask<Long, Integer, Boolean> {
 			} else {
 				Toast.makeText(
 						mCtx.getApplicationContext(),
-						"Cycle Columbus couldn't upload the note, and will retry when your next note is completed.",
+						"Fountain City Cycling could not upload the note, and will retry when your next note is completed.",
 						Toast.LENGTH_LONG).show();
 			}
 		} catch (Exception e) {

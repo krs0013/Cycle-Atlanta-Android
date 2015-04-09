@@ -50,54 +50,35 @@ public class SavedNotesAdapter extends SimpleCursorAdapter {
 
 		textViewStart.setText(start);
 
-		String[] noteTypeText = new String[] { "Pavement issue",
-				"Traffic signal", "Enforcement", "Bike parking",
+		String[] noteTypeText = new String[] { "Obstruction to riding",
+				"Bicycle detection box", "Enforcement", "Bike parking",
 				"Bike lane issue", "Note this issue", "Bike parking",
 				"Bike shops", "Public restrooms", "Secret passage",
-				"Water fountains", "Note this asset" };
+				"Water fountains", "Park", "Note this asset" };
 
 		textViewType.setText(noteTypeText[cursor.getInt(cursor
 				.getColumnIndex("notetype"))]);
 
 		int status = cursor.getInt(cursor.getColumnIndex("notestatus"));
-		Log.v("Jason", "Status: " + status);
+		Log.v("KENNY", "Status: " + status);
 
 		if (status == 2) {
 			switch (cursor.getInt(cursor.getColumnIndex("notetype"))) {
 			case 0:
-				imageNoteType.setImageResource(R.drawable.noteissuepicker_high);
-				break;
 			case 1:
-				imageNoteType.setImageResource(R.drawable.noteissuepicker_high);
-				break;
 			case 2:
-				imageNoteType.setImageResource(R.drawable.noteissuepicker_high);
-				break;
 			case 3:
-				imageNoteType.setImageResource(R.drawable.noteissuepicker_high);
-				break;
 			case 4:
-				imageNoteType.setImageResource(R.drawable.noteissuepicker_high);
-				break;
 			case 5:
 				imageNoteType.setImageResource(R.drawable.noteissuepicker_high);
 				break;
 			case 6:
-				imageNoteType.setImageResource(R.drawable.noteassetpicker_high);
-				break;
 			case 7:
-				imageNoteType.setImageResource(R.drawable.noteassetpicker_high);
-				break;
 			case 8:
-				imageNoteType.setImageResource(R.drawable.noteassetpicker_high);
-				break;
 			case 9:
-				imageNoteType.setImageResource(R.drawable.noteassetpicker_high);
-				break;
 			case 10:
-				imageNoteType.setImageResource(R.drawable.noteassetpicker_high);
-				break;
-			case 11:
+            case 11:
+			case 12:
 				imageNoteType.setImageResource(R.drawable.noteassetpicker_high);
 				break;
 			}

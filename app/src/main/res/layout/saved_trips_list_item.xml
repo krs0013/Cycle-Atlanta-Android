@@ -4,12 +4,11 @@
     android:layout_height="80dp"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"
-        android:layout_marginTop="8sp"
-        android:orientation="horizontal" >
+        android:layout_marginTop="8sp" >
 
         <TextView
             android:id="@+id/TextViewStart"
@@ -17,10 +16,22 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:text="@+id/TextView03"
+            android:layout_alignParentLeft="true"
             android:textColor="#ff888888"
             android:textSize="15sp" >
         </TextView>
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewMoneySaved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="Savings: "
+            android:layout_alignParentRight="true"
+            android:textColor="#ff888888"
+            android:textSize="15sp" >
+        </TextView>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

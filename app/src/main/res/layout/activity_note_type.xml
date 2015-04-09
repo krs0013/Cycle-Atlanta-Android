@@ -19,7 +19,7 @@
     <ListView
         android:id="@+id/listViewNoteType"
         android:layout_width="match_parent"
-        android:layout_height="302dp"
+        android:layout_height="@dimen/note_listview_height"
         android:layout_above="@+id/textViewNoteTypeDesc"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textViewDesc"

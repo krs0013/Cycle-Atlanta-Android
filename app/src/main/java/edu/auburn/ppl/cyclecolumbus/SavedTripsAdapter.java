@@ -37,6 +37,8 @@ public class SavedTripsAdapter extends SimpleCursorAdapter {
 				false);
 		TextView textViewStart = (TextView) rowView
 				.findViewById(R.id.TextViewStart);
+        TextView textViewSavings = (TextView) rowView
+                .findViewById(R.id.textViewMoneySaved);
 		TextView textViewPurpose = (TextView) rowView
 				.findViewById(R.id.TextViewPurpose);
 		TextView textViewInfo = (TextView) rowView
@@ -71,6 +73,18 @@ public class SavedTripsAdapter extends SimpleCursorAdapter {
 		DecimalFormat df = new DecimalFormat("0.#");
 		String CO2String = df.format(CO2);
 		textViewCO2.setText("CO2 Saved: " + CO2String + " lbs");
+
+        //Toast.makeText(context, "Distance: " + cursor.getFloat(cursor.getColumnIndex("distance")), Toast.LENGTH_SHORT).show();
+
+        //****** Calculates the average savings of biking vs driving for the 2015 year ******//
+        // based on 15k miles traveled per year by a mid size sedan, average maintenance costs, insurance costs, etc.
+        float savings = cursor.getFloat(cursor.getColumnIndex("distance")) * 0.0006212f;
+        Double dSavings = savings * .592;
+        DecimalFormat df2 = new DecimalFormat("$#,###,##0.00");
+        String savingsString = df2.format(dSavings);
+        textViewSavings.setText("Avg Savings: " + savingsString);
+
+        Log.v("KENNY", "Trip Position: " + position);
 
 		Double calory = cursor.getFloat(cursor.getColumnIndex("distance")) * 0.0006212 * 49 - 1.69;
 		String caloryString = df.format(calory);

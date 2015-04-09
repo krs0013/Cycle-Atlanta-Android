@@ -40,12 +40,13 @@ public class NoteTypeActivity extends Activity {
 		// Note Issue
 		noteTypeDescriptions
 				.put(0,
-						"Here�s a spot where the road needs to be repaired (pothole, rough concrete, gravel in the road, manhole cover, sewer grate).");
+						"Here's a spot where the road needs to be repaired (pothole, rough concrete, gravel in the road, manhole cover, sewer grate) or where " +
+                                "a bike cannot travel.");
 		noteTypeDescriptions.put(1,
-				"Here�s a signal that you can�t activate with your bike.");
+				"Here's a signal that you can activate with your bike. Mark it down if it is damaged to bring attention to the issue!");
 		noteTypeDescriptions
 				.put(2,
-						"The bike lane is always blocked here, cars disobey \"no right on red\"� anything where the cops can help make cycling safer.");
+						"The bike lane is always blocked here, cars disobey \"no right on red\" anything where the cops can help make cycling safer.");
 		noteTypeDescriptions.put(3,
 				"You need a bike rack to secure your bike here.");
 		noteTypeDescriptions
@@ -64,15 +65,18 @@ public class NoteTypeActivity extends Activity {
 						"Have a flat, a broken chain, or spongy brakes? Or do you need a bike to jump into this world of cycling in the first place? Here's a shop ready to help.");
 		noteTypeDescriptions
 				.put(8,
-						"Help us make cycling mainstream� here�s a place to refresh yourself before you re-enter the fashionable world of Atlanta.");
+						"Help us make cycling mainstream! Here's a place to refresh yourself before you re-enter the fashionable world of Fountain City.");
 		noteTypeDescriptions
 				.put(9,
 						"Here's an access point under the tracks, through the park, onto a trail, or over a ravine.");
 		noteTypeDescriptions
 				.put(10,
-						"Here�s a spot to fill your bottle on those hot summer days� stay hydrated, people. We need you.");
+						"Here's a spot to fill your bottle on those hot summer days. Stay hydrated, people! We need you.");
+        noteTypeDescriptions
+                .put(11,
+                        "Take a load off and enjoy the view or take a nice ride through the park! Either way, this is a great place to mark down.");
 		noteTypeDescriptions
-				.put(11,
+				.put(12,
 						"Anything else we should map to help your fellow cyclists? Share the details.");
 	}
 
@@ -93,11 +97,11 @@ public class NoteTypeActivity extends Activity {
 		isRecording = myIntent.getIntExtra("isRecording", -1);
 
 		final ListView listView = (ListView) findViewById(R.id.listViewNoteType);
-		values = new String[] { "Pavement issue", "Traffic signal",
-				"Enforcement", "Bike parking", "Bike lane issue",
-				"Note this issue", "Bike parking", "Bike shops",
-				"Public restrooms", "Secret passage", "Water fountains",
-				"Note this asset" };
+		values = new String[] { "Obstruction to riding",
+                "Bicycle detection box", "Enforcement", "Bike parking",
+                "Bike lane issue", "Note this issue", "Bike parking",
+                "Bike shops", "Public restrooms", "Secret passage",
+                "Water fountains", "Park", "Note this asset" };
 		// final ArrayList<String> list = new ArrayList<String>();
 		// for (int i = 0; i < values.length; ++i) {
 		// list.add(values[i]);
@@ -162,7 +166,7 @@ public class NoteTypeActivity extends Activity {
 
 			// Cancel
 			NoteData note = NoteData.fetchNote(NoteTypeActivity.this, noteid);
-			Log.v("Jason", "Note id: " + noteid);
+			Log.v("KENNY", "Note id: " + noteid);
 			note.dropNote();
 
 			NoteTypeActivity.this.finish();

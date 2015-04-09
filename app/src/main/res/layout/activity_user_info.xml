@@ -31,7 +31,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentTop="true"
-                android:text="Get started with Cycle Columbus" />
+                android:text="Get started with Fountain City Cycling" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -300,6 +300,26 @@
                 android:layout_alignRight="@+id/TextEmail"
                 android:layout_alignTop="@+id/textViewRiderHistory"
                 android:entries="@array/riderhistoryArray" />
+<!--
+            <TextView
+                android:id="@+id/deleted_trip_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/riderhistorySpinner"
+                android:layout_marginTop="15dp"
+                android:text="Accidentally delete a trip?"
+                android:textStyle="italic"/>
+
+            <Button
+                android:id="@+id/deleted_trip_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/deleted_trip_text"
+                android:text="Download previously saved trips!" />
+-->
         </RelativeLayout>
     </ScrollView>
     
@@ -320,7 +340,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/textview_padding"
-            android:text="Cycle Columbus Instructions"
+            android:text="Fountain City Cycling Instructions"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="@dimen/body_text_medium"/>
@@ -590,7 +610,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/textview_padding"
-                android:text="Steps to make sure Cycle Columbus works properly"
+                android:text="Steps to make sure Fountain City Cycling works properly"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="@dimen/body_text_medium"/>

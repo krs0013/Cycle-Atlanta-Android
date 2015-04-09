@@ -59,11 +59,11 @@ public class NoteMapActivity extends Activity {
 			TextView t2 = (TextView) findViewById(R.id.TextViewMapNoteDetails);
 			TextView t3 = (TextView) findViewById(R.id.TextViewMapNoteFancyStart);
 
-			String[] noteTypeText = new String[] { "Pavement issue",
-					"Traffic signal", "Enforcement", "Bike parking",
-					"Bike lane issue", "Note this issue", "Bike parking",
-					"Bike shops", "Public restrooms", "Secret passage",
-					"Water fountains", "Note this asset" };
+			String[] noteTypeText = new String[] { "Obstruction to riding",
+                    "Bicycle detection box", "Enforcement", "Bike parking",
+                    "Bike lane issue", "Note this issue", "Bike parking",
+                    "Bike shops", "Public restrooms", "Secret passage",
+                    "Water fountains", "Park", "Note this asset" };
 
 			t1.setText(noteTypeText[note.notetype]);
 			t2.setText(note.notedetails);
@@ -85,7 +85,7 @@ public class NoteMapActivity extends Activity {
 							.position(
 									new LatLng(note.latitude * 1E-6,
 											note.longitude * 1E-6)));
-				} else if (note.notetype >= 6 && note.notetype <= 11) {
+				} else if (note.notetype >= 6 && note.notetype <= 12) {
 					map.addMarker(new MarkerOptions()
 							.icon(BitmapDescriptorFactory
 									.fromResource(R.drawable.noteassetmapglyph_high))

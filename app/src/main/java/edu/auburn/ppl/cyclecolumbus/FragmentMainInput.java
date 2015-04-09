@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -139,6 +140,15 @@ public class FragmentMainInput extends Fragment implements ConnectionCallbacks,
 				}
 			}
 		});
+
+        ImageView leaderboard = (ImageView) rootView.findViewById(R.id.leaderboard_icon);
+        leaderboard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), LeaderboardActivity.class);
+                startActivity(intent);
+            }
+        });
 
 		Button noteThisButton = (Button) rootView
 				.findViewById(R.id.buttonNoteThis);
@@ -283,7 +293,7 @@ public class FragmentMainInput extends Fragment implements ConnectionCallbacks,
 		final AlertDialog.Builder builder = new AlertDialog.Builder(
 				getActivity());
 		builder.setMessage(
-				"Your phone's GPS is disabled. Cycle Columbus needs GPS to determine your location.\n\nGo to System Settings now to enable GPS?")
+				"Your phone's GPS is disabled. Fountain City Cycling needs GPS to determine your location.\n\nGo to System Settings now to enable GPS?")
 				.setCancelable(false)
 				.setPositiveButton("GPS Settings...",
 						new DialogInterface.OnClickListener() {

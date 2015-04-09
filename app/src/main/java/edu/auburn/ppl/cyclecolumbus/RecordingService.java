@@ -260,7 +260,7 @@ public class RecordingService extends Service implements LocationListener {
 		soundpool.play(bikebell, 1.0f, 1.0f, 1, 0, 1.0f);
 
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-		int icon = R.drawable.icon48;
+		int icon = R.drawable.wheelicon;
 		long when = System.currentTimeMillis();
 		int minutes = (int) (when - trip.startTime) / 60000;
 		CharSequence tickerText = String.format("Still recording (%d min)",
@@ -274,7 +274,7 @@ public class RecordingService extends Service implements LocationListener {
 		notification.ledOffMS = 3000;
 
 		Context context = this;
-		CharSequence contentTitle = "Cycle Columbus - Recording";
+		CharSequence contentTitle = "Fountain City Cycling - Recording";
 		CharSequence contentText = "Tap to see your ongoing trip";
 		Intent notificationIntent = new Intent(context, FragmentMainInput.class);
 		PendingIntent contentIntent = PendingIntent.getActivity(context, 0,
@@ -287,7 +287,7 @@ public class RecordingService extends Service implements LocationListener {
 
 	private void setNotification() {
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-		int icon = R.drawable.icon25;
+		int icon = R.drawable.wheelicon;
 		CharSequence tickerText = "Recording...";
 		long when = System.currentTimeMillis();
 
@@ -302,7 +302,7 @@ public class RecordingService extends Service implements LocationListener {
 				| Notification.FLAG_NO_CLEAR;
 
 		Context context = this;
-		CharSequence contentTitle = "Cycle Columbus - Recording";
+		CharSequence contentTitle = "Fountain City Cycling - Recording";
 		CharSequence contentText = "Tap to see your ongoing trip";
 		Intent notificationIntent = new Intent(context, FragmentMainInput.class);
 		PendingIntent contentIntent = PendingIntent.getActivity(context, 0,

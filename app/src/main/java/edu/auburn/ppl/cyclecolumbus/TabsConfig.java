@@ -1,7 +1,9 @@
 package edu.auburn.ppl.cyclecolumbus;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.FragmentTransaction;
+import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,7 +13,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.ActionMode;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -93,8 +94,8 @@ public class TabsConfig extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
-
 		mViewPager.setOffscreenPageLimit(4);
+        //mViewPager.canScrollHorizontally(1);
 	}
 
 	@Override
@@ -113,17 +114,17 @@ public class TabsConfig extends FragmentActivity implements
 		case 1:
 			actionBar.setDisplayShowTitleEnabled(true);
 			actionBar.setDisplayShowHomeEnabled(true);
-			actionBar.setTitle("Cycle Columbus");
+			actionBar.setTitle("Fountain City Cycling");
 			break;
 		case 2:
 			actionBar.setDisplayShowTitleEnabled(true);
 			actionBar.setDisplayShowHomeEnabled(true);
-			actionBar.setTitle("Cycle Columbus");
+			actionBar.setTitle("Fountain City Cycling");
 			break;
 		case 3:
 			actionBar.setDisplayShowTitleEnabled(true);
 			actionBar.setDisplayShowHomeEnabled(true);
-			actionBar.setTitle("Cycle Columbus");
+			actionBar.setTitle("Fountain City Cycling");
 			break;
 		}
 	}
@@ -233,16 +234,15 @@ public class TabsConfig extends FragmentActivity implements
 	// 2.0 and above
 	@Override
 	public void onBackPressed() {
-	    moveTaskToBack(true);
-	}
-
-	// Before 2.0
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-	    if (keyCode == KeyEvent.KEYCODE_BACK) {
-	        moveTaskToBack(true);
-	        return true;
-	    }
-	    return super.onKeyDown(keyCode, event);
+        new AlertDialog.Builder(this).setIcon(android.R.drawable.ic_dialog_alert).setTitle("Exit")
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        moveTaskToBack(true);
+                        finish();
+                        System.exit(0);
+                    }
+                }).setNegativeButton("No", null).show();
 	}
 }
